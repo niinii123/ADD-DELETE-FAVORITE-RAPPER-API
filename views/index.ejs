@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD OR DELETE YOUR FAV RAPPER API</title>
+    <link rel="stylesheet" type="text/css" href="/styling.css"/>
+</head>
+<body>
+    <section class="container">
+        <h1>YOUR CURRENT FAVORITE RAPPERS</h1>
+        <!--Note that the childNodes in the ejs below are the items in the span tag-->
+        <!--And they are start at node number 1 and increase by 2-->
+        <!--So the first node is labelled childNode 1, the second as childNode 2 and the last as childNode 5-->
+        <ul class="rappers">
+        <% for(let i=0; i < info.length; i++) {%>
+           <li class="rappers">
+              <span><%= info[i].stageName %></span>
+              <span><%= info[i].birthName %></span>
+              <button class='del'>Delete</button>
+           </li>
+        <% } %> 
+        </ul>
+    
+        <h2>ADD YOUR FAVORITE RAPPER:</h2>
+        
+        <!--The form below has an action of /addRapper this means that-->
+        <!--if the server runs and this form is submitted, the data passed-->
+        <!--through form should look for a post API with a route of '/addRapper'-->
+        <form action="/addRapper" method="POST">
+             <input type="text" placeholder="Stage Name" name="stageName">
+             <input type="text" placeholder="Birth Name" name="birthName">
+             <button type="submit">Submit</button>
+        </form>  
+    </section>
+<script type="text/javascript" src="/main.js"></script>
+</body>
+</html>
